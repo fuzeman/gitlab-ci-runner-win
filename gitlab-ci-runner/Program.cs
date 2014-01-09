@@ -17,7 +17,10 @@ namespace gitlab_ci_runner
         {
             Console.InputEncoding = Encoding.Default;
             Console.OutputEncoding = Encoding.Default;
+
             ServicePointManager.DefaultConnectionLimit = 999;
+            ServicePointManager.Expect100Continue = false;
+            
             if (Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location).Substring(0, 1) == @"\") {
                 Console.WriteLine("Can't run on UNC Path");
             } else {
